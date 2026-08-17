@@ -69,7 +69,7 @@ const ALLOWED_EXTENSIONS = new Set([
   ".png",
 ]);
 
-const REQUEST_TIMEOUT_MS = 15000;
+const REQUEST_TIMEOUT_MS = 5000;
 const RETRY_ATTEMPTS = 3;
 
 // -- helpers ---------------------------------------------------------------
