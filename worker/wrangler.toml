@@ -1,4 +1,4 @@
-name = "vavoo-iptv-proxy"
+name = "hmeb"
 main = "src/index.js"
 compatibility_date = "2025-01-01"
 
