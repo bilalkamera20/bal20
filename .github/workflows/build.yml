@@ -38,7 +38,7 @@ jobs:
           restore-keys: |
             npm-${{ runner.os }}-
 
-      - name: Install deps
+      - name: Install dependencies
         run: npm ci --no-audit --no-progress
 
       - name: Generate iptv.m3u and epg.xml
