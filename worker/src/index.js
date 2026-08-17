@@ -70,7 +70,7 @@ const ALLOWED_EXTENSIONS = new Set([
 ]);
 
 const REQUEST_TIMEOUT_MS = 5000;
-const RETRY_ATTEMPTS = 3;
+const RETRY_ATTEMPTS = 2;
 
 // -- helpers ---------------------------------------------------------------
 
