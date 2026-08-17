@@ -8,7 +8,7 @@ const CATALOG_URL = "https://vavoo.to/mediahubmx-catalog.json";
 const GROUP = "Turkey";
 const M3U_FILE = path.join(__dirname, "..", "iptv.m3u");
 const EPG_FILE = path.join(__dirname, "..", "epg.xml");
-const FETCH_TIMEOUT_MS = 20000;
+const FETCH_TIMEOUT_MS = 5000;
 
 // Upstream free TR EPG (gzipped XMLTV). Matched to Vavoo channels by fuzzy name.
 const EPG_UPSTREAM_URL =
@@ -72,7 +72,7 @@ function buildBody(cursor) {
 async function fetchPage(cursor) {
   const body = buildBody(cursor);
   let lastErr;
-  for (let attempt = 1; attempt <= 5; attempt++) {
+  for (let attempt = 1; attempt <= 2; attempt++) {
     try {
       const res = await fetch(CATALOG_URL, {
         method: "POST",
