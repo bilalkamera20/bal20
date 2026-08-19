@@ -31,9 +31,6 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Proje Bağımlılıklarını Yükle
-        run: npm install
-
       - name: iptv.m3u Oluştur
         env:
           PROXY_BASE: ${{ vars.PROXY_BASE }}
