@@ -124,8 +124,6 @@ async function fetchAll() {
 
 // -- categorization --------------------------------------------------------
 
-// Strip "4K TR:" prefix, quality tags and .b/.c/.s source suffixes for matching
-// only — the displayed name is unchanged.
 function normalizeForCategory(name) {
   let s = String(name || "")
     .replace(/^\s*4K TR:\s*/i, "")
@@ -134,10 +132,6 @@ function normalizeForCategory(name) {
     .replace(/\s+/g, " ")
     .trim();
 
-  // Vavoo often strips Turkish characters (İ, Ü, Ç, Ş, Ğ, Ö), leaving single-letter
-  // fragments like "T RK" (TÜRK), "AK T" (AKİT), "BENG T RK" (BENGÜTÜRK),
-  // "S NEMA" (SİNEMA), "M N KA" (MİNİKA), "OCUK" (ÇOCUK). Restore common
-  // patterns so category regexes can match them.
   s = s
     .replace(/\bT RK\b/g, "TURK")
     .replace(/\bT RKIYEM\b/g, "TURKIYEM")
@@ -158,8 +152,6 @@ function normalizeForCategory(name) {
   return s;
 }
 
-// Rules are evaluated top-to-bottom. First match wins, so specific rules
-// (Çocuk, Spor, Belgesel) come before broad ones (Ulusal, Yerel).
 const CATEGORY_RULES = [
   {
     name: "Radyo",
@@ -234,9 +226,10 @@ function sanitizeName(name) {
 }
 
 function toStreamUrl(item) {
-  const id = item?.ids?.id;
-  if (PROXY_BASE && id) return `${PROXY_BASE}/play/${id}`;
-  return item.url;
+  if (PROXY_BASE && item?.url) {
+    return `${PROXY_BASE}/?url=${encodeURIComponent(item.url)}`;
+  }
+  return item?.url || "";
 }
 
 function toM3U(items, vavooToEpgId, logoResolver) {
@@ -249,8 +242,6 @@ function toM3U(items, vavooToEpgId, logoResolver) {
     if (!name) continue;
     const logo = resolveLogo(name, it.logo, logoResolver);
     const group = categorize(name);
-    // Route tvg-id to the upstream EPG channel id when we have a match,
-    // so TiviMate can bind the guide. Fallback to the Vavoo id.
     const tvgId = (vavooToEpgId && vavooToEpgId.get(vavooId)) || vavooId;
     lines.push(
       `#EXTINF:-1 tvg-id="${escapeAttr(tvgId)}" tvg-name="${escapeAttr(name)}" tvg-logo="${escapeAttr(logo)}" group-title="${escapeAttr(group)}",${name}`
@@ -261,7 +252,6 @@ function toM3U(items, vavooToEpgId, logoResolver) {
   return lines.join("\n");
 }
 
-// iptv-org logo > Vavoo logo > "" (empty). Vavoo mostly returns "" anyway.
 function resolveLogo(name, vavooLogo, logoResolver) {
   if (logoResolver) {
     const l = logoResolver(name);
@@ -307,7 +297,6 @@ async function fetchUpstreamXmltv(url) {
   return bytes.toString("utf8");
 }
 
-// Load and merge all XMLTV files inside a directory (iptv-org grab output).
 async function loadGrabDir(dir) {
   const combined = { channels: new Map(), progByChannel: new Map() };
   if (!dir) return combined;
@@ -338,10 +327,9 @@ async function loadGrabDir(dir) {
   return combined;
 }
 
-// Parse XMLTV via regex (no dependency). Sufficient for well-formed feeds.
 function parseXmltv(xml) {
-  const channels = new Map(); // id -> { names[], icon }
-  const programmes = []; // { start, stop, channel, titleXml, descXml, categoryXml }
+  const channels = new Map();
+  const programmes = [];
 
   const chRe = /<channel\s+id="([^"]+)"[^>]*>([\s\S]*?)<\/channel>/gi;
   for (const m of xml.matchAll(chRe)) {
@@ -370,7 +358,6 @@ function parseXmltv(xml) {
   return { channels, programmes };
 }
 
-// Loose ASCII normalization used ONLY for cross-source name matching.
 function normalizeForMatch(name) {
   let s = String(name || "")
     .toUpperCase()
@@ -378,7 +365,6 @@ function normalizeForMatch(name) {
     .replace(/\s*\.(?:B|C|S)\b/gi, "")
     .replace(/\[[^\]]*\]/g, " ")
     .replace(/\([^\)]*\)/g, " ")
-    // Restore Vavoo's stripped Turkish characters BEFORE ASCII fold.
     .replace(/\bT RK\b/g, "TURK")
     .replace(/\bAK T\b/g, "AKIT")
     .replace(/\bS NEMA\b/g, "SINEMA")
@@ -463,7 +449,6 @@ function toXMLTV(
     }
 
     const displayName = sourceCh?.names?.[0] || name;
-    // Logo priority: iptv-org > EPG source icon > Vavoo logo > empty
     const iptvorgLogo = logoResolver ? logoResolver(name) : "";
     const icon = iptvorgLogo || sourceCh?.icon || it.logo || "";
     const iconTag = icon ? `\n    <icon src="${xmlEscape(icon)}"/>` : "";
@@ -517,7 +502,6 @@ async function buildLogoIndex() {
   const trChannels = channels.filter((c) => c && c.country === "TR");
   const trIds = new Set(trChannels.map((c) => c.id));
 
-  // Prefer in_use=true logos; fall back to first available.
   const chosen = new Map();
   for (const l of logos) {
     if (!l || !trIds.has(l.channel) || !l.url) continue;
@@ -569,7 +553,6 @@ async function main() {
   const items = await fetchAll();
   console.log(`Total items: ${items.length}`);
 
-  // Deterministic order for clean git diffs
   items.sort((a, b) => {
     const an = String(a.name ?? "").toLocaleLowerCase("tr-TR");
     const bn = String(b.name ?? "").toLocaleLowerCase("tr-TR");
@@ -637,7 +620,6 @@ async function main() {
     const name = sanitizeName(it.name);
     if (!name) continue;
 
-    // Priority: iptv-org grab (real TR descriptions) > epgshare01 (title-only) > Vavoo inline
     const grabId = matchUpstreamId(name, grabIdx);
     if (grabId) {
       vavooToEpgId.set(vavooId, grabId);
