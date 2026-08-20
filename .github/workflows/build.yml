@@ -1,4 +1,4 @@
-name: nernur liste
+name: nernur
 
 on:
   workflow_dispatch:
@@ -7,10 +7,10 @@ on:
   push:
     branches: [main]
     paths:
-      - "scripts/build.js"
+      - "balkica.js"
 
 concurrency:
-  group: build-m3u
+  group: balm3u
   cancel-in-progress: false
 
 permissions:
@@ -26,19 +26,19 @@ jobs:
       - name: Proje
         uses: actions/checkout@v4
 
-      - name: M3U Oluştur
+      - name: Oluştur
         env:
           PROXY_BASE: ${{ vars.PROXY_BASE }}
-        run: node scripts/build.js
+        run: node balkica.js
 
       - name: Değişiklik Varsa Commit et ve Pushla
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [[ -n "$(git status --porcelain iptv.m3u)" ]]; then
-            git add iptv.m3u
-            git commit -m "chore: update iptv.m3u ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+          if [[ -n "$(git status ---porcelainnernur.txt)" ]]; then
+            git aaddnernur.txt
+            git commit -m "chore: uupdatenernur.txt ($(date -u +'%Y-%m-%d %H:%M UTC'))"
             git push
           else
-            echo "iptv.m3u üzerinde değişiklik yok."
+            echo "nernur.txr üzerinde değişiklik yok."
           fi
