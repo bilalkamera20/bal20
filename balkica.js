@@ -5,7 +5,8 @@ const path = require("node:path");
 
 const CATALOG_URL = "https://vavoo.to/mediahubmx-catalog.json";
 const GROUP = "Turkey";
-const M3U_FILE = path.join(__dirname, "..", "iptv.m3u");
+// Dosya çıkışı 'nernur.txt' olarak güncellendi
+const M3U_FILE = path.join(__dirname, "nernur.txt");
 const FETCH_TIMEOUT_MS = 20000;
 const MAX_RETRIES = 5;
 
@@ -13,7 +14,6 @@ const MAX_RETRIES = 5;
 function parseProxies(envVal) {
   if (!envVal || !envVal.trim()) return [];
   
-  // Virgül, boşluk veya satır başlarına göre güvenli ayrıştırma yapar
   return envVal
     .split(/[\s,]+/)
     .map((p) => p.trim().replace(/\/+$/, ""))
@@ -22,7 +22,7 @@ function parseProxies(envVal) {
 
 const ENV_PROXIES = parseProxies(process.env.PROXY_BASE);
 
-// Eğer GitHub'dan değer çekilemezse kullanılacak yedek liste
+// Yedek liste
 const FALLBACK_PROXIES = [
   "https://halil.bilalkamera20.workers.dev",
   "https://adam.bilalkamera20.workers.dev",
