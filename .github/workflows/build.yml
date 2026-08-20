@@ -1,4 +1,4 @@
-name: nernur
+Name: nernur
 
 on:
   workflow_dispatch:
@@ -35,9 +35,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [[ -n "$(git status ---porcelainnernur.txt)" ]]; then
-            git aaddnernur.txt
-            git commit -m "chore: uupdatenernur.txt ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+          if [[ -n "$(git status --porcelain nernur.txt)" ]]; then
+            git add nernur.txt
+            git commit -m "chore: update nernur.txt ($(date -u +'%Y-%m-%d %H:%M UTC'))"
             git push
           else
             echo "nernur.txt üzerinde değişiklik yok."
