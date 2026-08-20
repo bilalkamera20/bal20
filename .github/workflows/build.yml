@@ -40,5 +40,5 @@ jobs:
             git commit -m "chore: uupdatenernur.txt ($(date -u +'%Y-%m-%d %H:%M UTC'))"
             git push
           else
-            echo "nernur.txr üzerinde değişiklik yok."
+            echo "nernur.txt üzerinde değişiklik yok."
           fi
