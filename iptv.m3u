@@ -59,6 +59,8 @@ https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F207886293750ec015d3e85
 #EXTINF:-1 tvg-id="41172279629184f8c9c408" tvg-name="4K TR: EUROSPORT 2 HD .b" tvg-logo="" group-title="Spor",4K TR: EUROSPORT 2 HD .b
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F41172279629184f8c9c408
+#EXTINF:-1 tvg-id="1944695268eb5e2a66f22" tvg-name="4K TR: EXXEN TV .b" tvg-logo="" group-title="Ulusal",4K TR: EXXEN TV .b
+https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F1944695268eb5e2a66f22
 #EXTINF:-1 tvg-id="3730681078c11a26802932" tvg-name="4K TR: FB TV .b" tvg-logo="" group-title="Spor",4K TR: FB TV .b
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F3730681078c11a26802932
 #EXTINF:-1 tvg-id="268701784160a0471a069f" tvg-name="4K TR: FLASH TV .b" tvg-logo="" group-title="Ulusal",4K TR: FLASH TV .b
@@ -497,6 +499,8 @@ https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F323636291171b2af97d745
 #EXTINF:-1 tvg-id="3694662475a36c53181838" tvg-name="BEIN SPORTS 2 UHD .b" tvg-logo="https://logo.huhu.to/logo?c=3694662475.png" group-title="Spor",BEIN SPORTS 2 UHD .b
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F3694662475a36c53181838
+#EXTINF:-1 tvg-id="179745960216563080394f" tvg-name="BEIN SPORTS 3 .c" tvg-logo="https://logo.huhu.to/logo?c=1797459602.png" group-title="Spor",BEIN SPORTS 3 .c
+https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F179745960216563080394f
 #EXTINF:-1 tvg-id="2834514943d9fcc1df9594" tvg-name="BEIN SPORTS 3 .s" tvg-logo="" group-title="Spor",BEIN SPORTS 3 .s
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F2834514943d9fcc1df9594
 #EXTINF:-1 tvg-id="17005958018c5d23b49ef0" tvg-name="BEIN SPORTS 3 HD .b" tvg-logo="https://logo.huhu.to/logo?c=1700595801.png" group-title="Spor",BEIN SPORTS 3 HD .b
@@ -577,6 +581,10 @@ https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F37894122206a5d105c20d3
 #EXTINF:-1 tvg-id="26616132460497e495a648" tvg-name="BRT 2 .s" tvg-logo="" group-title="Diğer",BRT 2 .s
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F26616132460497e495a648
+#EXTINF:-1 tvg-id="2794224703b2cc3f4b330e" tvg-name="BRT 2 RAW .b" tvg-logo="" group-title="Diğer",BRT 2 RAW .b
+https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F2794224703b2cc3f4b330e
+#EXTINF:-1 tvg-id="1840145851828723ba90ac" tvg-name="BRT 3 .b" tvg-logo="" group-title="Diğer",BRT 3 .b
+https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F1840145851828723ba90ac
 #EXTINF:-1 tvg-id="134086061839e644f1eaa" tvg-name="BRTV .c" tvg-logo="https://logo.huhu.to/logo?c=134086061.png" group-title="Diğer",BRTV .c
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F134086061839e644f1eaa
 #EXTINF:-1 tvg-id="910953672551cfa880ee0" tvg-name="BULMACA KULESI .b" tvg-logo="" group-title="Diğer",BULMACA KULESI .b
@@ -587,10 +595,6 @@ https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F25407700892aa536e1a9ff
 #EXTINF:-1 tvg-id="182252574160a3b3c54187" tvg-name="CAN TV .b" tvg-logo="" group-title="Diğer",CAN TV .b
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F182252574160a3b3c54187
-#EXTINF:-1 tvg-id="3900702315d5891138ec1d" tvg-name="CAN TV .c" tvg-logo="https://logo.huhu.to/logo?c=3900702315.png" group-title="Diğer",CAN TV .c
-https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F3900702315d5891138ec1d
-#EXTINF:-1 tvg-id="37370371587d37e629c448" tvg-name="CANIM KARDESIM TV .b" tvg-logo="" group-title="Çocuk",CANIM KARDESIM TV .b
-https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F37370371587d37e629c448
 #EXTINF:-1 tvg-id="16965737237b7911f24b84" tvg-name="CARTOON NETWORK .c" tvg-logo="https://logo.huhu.to/logo?c=1696573723.png" group-title="Çocuk",CARTOON NETWORK .c
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F16965737237b7911f24b84
 #EXTINF:-1 tvg-id="178755989915511fee27c" tvg-name="CARTOONITO .c" tvg-logo="" group-title="Diğer",CARTOONITO .c
@@ -807,6 +811,8 @@ https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F71194427284d165c9835e
 #EXTINF:-1 tvg-id="6574952728e780b291cc7" tvg-name="EKIN T RK TV .b" tvg-logo="" group-title="Diğer",EKIN T RK TV .b
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F6574952728e780b291cc7
+#EXTINF:-1 tvg-id="666401379556f17cdcc8c" tvg-name="EKIN TURK .c" tvg-logo="https://logo.huhu.to/logo?c=666401379.png" group-title="Diğer",EKIN TURK .c
+https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F666401379556f17cdcc8c
 #EXTINF:-1 tvg-id="350404585796b6d306497a" tvg-name="ELAZIG KANAL 23 .b" tvg-logo="" group-title="Yerel",ELAZIG KANAL 23 .b
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F350404585796b6d306497a
 #EXTINF:-1 tvg-id="634397776501ceff80d97" tvg-name="ELAZIG KANAL FIRAT .b" tvg-logo="" group-title="Yerel",ELAZIG KANAL FIRAT .b
@@ -1725,8 +1731,6 @@ https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F144949986573359afbfeae
 #EXTINF:-1 tvg-id="351471337029c80ca4c64" tvg-name="SHOW TV HD .b" tvg-logo="" group-title="Ulusal",SHOW TV HD .b
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F351471337029c80ca4c64
-#EXTINF:-1 tvg-id="211202577752738f3dc7d9" tvg-name="SHOW TV SD .b" tvg-logo="https://logo.huhu.to/logo?c=2112025777.png" group-title="Ulusal",SHOW TV SD .b
-https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F211202577752738f3dc7d9
 #EXTINF:-1 tvg-id="1197572527f8384c637ae4" tvg-name="SHOWMAX .b" tvg-logo="https://logo.huhu.to/logo?c=1197572527.png" group-title="Film",SHOWMAX .b
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F1197572527f8384c637ae4
 #EXTINF:-1 tvg-id="3491525845a8862ff934e0" tvg-name="SL NILOYA .c" tvg-logo="https://logo.huhu.to/logo?c=3491525845.png" group-title="Çocuk",SL NILOYA .c
@@ -1805,24 +1809,18 @@ https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F16177199419730b495b23d
 #EXTINF:-1 tvg-id="24848056995333a11423de" tvg-name="SINEMA YERLI 1 .s" tvg-logo="" group-title="Film",SINEMA YERLI 1 .s
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F24848056995333a11423de
-#EXTINF:-1 tvg-id="2789249461c1ad5d07b17a" tvg-name="SINEMAX DRAMA .s" tvg-logo="" group-title="Film",SINEMAX DRAMA .s
-https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F2789249461c1ad5d07b17a
-#EXTINF:-1 tvg-id="14694844750eea4e90973f" tvg-name="SINEMAX FAMILY .s" tvg-logo="" group-title="Film",SINEMAX FAMILY .s
-https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F14694844750eea4e90973f
-#EXTINF:-1 tvg-id="56581376296a68bfac79f" tvg-name="SINEMAX KOMEDI .s" tvg-logo="" group-title="Film",SINEMAX KOMEDI .s
-https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F56581376296a68bfac79f
-#EXTINF:-1 tvg-id="4201568953301b0088849e" tvg-name="SINEMAX TURK .s" tvg-logo="" group-title="Film",SINEMAX TURK .s
-https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F4201568953301b0088849e
-#EXTINF:-1 tvg-id="3562169936e24369ffef8d" tvg-name="SINEVIZYON 1 .s" tvg-logo="" group-title="Film",SINEVIZYON 1 .s
-https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F3562169936e24369ffef8d
-#EXTINF:-1 tvg-id="1434492924511874701343" tvg-name="SINEVIZYON 15 .s" tvg-logo="" group-title="Film",SINEVIZYON 15 .s
-https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F1434492924511874701343
 #EXTINF:-1 tvg-id="567459984fcc0c3381a21" tvg-name="SINEVIZYON 5 .s" tvg-logo="" group-title="Film",SINEVIZYON 5 .s
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F567459984fcc0c3381a21
 #EXTINF:-1 tvg-id="237327525e72f36a04e37" tvg-name="SINEVIZYON TURK 1 .s" tvg-logo="" group-title="Film",SINEVIZYON TURK 1 .s
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F237327525e72f36a04e37
 #EXTINF:-1 tvg-id="13493455810611836e96c5" tvg-name="SINEVIZYON TURK 10 .s" tvg-logo="" group-title="Film",SINEVIZYON TURK 10 .s
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F13493455810611836e96c5
+#EXTINF:-1 tvg-id="1233464949183c7280e3a4" tvg-name="SINEVIZYON TURK 2 .s" tvg-logo="" group-title="Film",SINEVIZYON TURK 2 .s
+https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F1233464949183c7280e3a4
+#EXTINF:-1 tvg-id="4221956709ff9a263200e0" tvg-name="SINEVIZYON TURK 5 .s" tvg-logo="" group-title="Film",SINEVIZYON TURK 5 .s
+https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F4221956709ff9a263200e0
+#EXTINF:-1 tvg-id="315447928559cf5bc5d2cd" tvg-name="SINEVIZYON TURK 6 .s" tvg-logo="" group-title="Film",SINEVIZYON TURK 6 .s
+https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F315447928559cf5bc5d2cd
 #EXTINF:-1 tvg-id="21709212216ea5f185ca61" tvg-name="SINEVIZYON TURK 7 .s" tvg-logo="" group-title="Film",SINEVIZYON TURK 7 .s
 https://vavoo-iptv-proxy.bilalkamera20.workers.dev/?url=https%3A%2F%2Fvavoo.to%2Fvavoo-iptv%2Fplay%2F21709212216ea5f185ca61
 #EXTINF:-1 tvg-id="10457659887777aa426858" tvg-name="SINEVIZYON TURK 9 .s" tvg-logo="" group-title="Film",SINEVIZYON TURK 9 .s
