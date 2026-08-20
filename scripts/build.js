@@ -9,13 +9,20 @@ const M3U_FILE = path.join(__dirname, "..", "iptv.m3u");
 const FETCH_TIMEOUT_MS = 20000;
 const MAX_RETRIES = 5;
 
-// GitHub Repository Variable'dan gelen virgüllü metni diziye çevirir
-const ENV_PROXIES = (process.env.PROXY_BASE || "")
-  .split(",")
-  .map((p) => p.trim().replace(/\/+$/, ""))
-  .filter(Boolean);
+// -- Proxy Ayrıştırma Ve Temizleme Fonksiyonu ------------------------------
+function parseProxies(envVal) {
+  if (!envVal || !envVal.trim()) return [];
+  
+  // Virgül, boşluk veya satır başlarına göre güvenli ayrıştırma yapar
+  return envVal
+    .split(/[\s,]+/)
+    .map((p) => p.trim().replace(/\/+$/, ""))
+    .filter((p) => p.startsWith("http://") || p.startsWith("https://"));
+}
 
-// Eğer GitHub'dan değer gelmezse kullanılacak yedek liste
+const ENV_PROXIES = parseProxies(process.env.PROXY_BASE);
+
+// Eğer GitHub'dan değer çekilemezse kullanılacak yedek liste
 const FALLBACK_PROXIES = [
   "https://halil.bilalkamera20.workers.dev",
   "https://adam.bilalkamera20.workers.dev",
@@ -81,7 +88,7 @@ async function fetchPage(cursor) {
       if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
 
       const data = await res.json();
-      if (data && data.error) throw new Error(`Vavoo error: ${data.error}`);
+      if (data && data.error) throw new Error(`Vavoo hatası: ${data.error}`);
 
       return data;
     } catch (err) {
@@ -111,13 +118,13 @@ async function fetchAll() {
     }
 
     console.log(
-      `Sayfa ${page}: ${data.items?.length ?? 0} öge çekildi, nextCursor=${data.nextCursor ?? "null"}`
+      `Sayfa ${page}: ${data.items?.length ?? 0} kanal çekildi, nextCursor=${data.nextCursor ?? "null"}`
     );
 
     cursor = data.nextCursor ?? null;
 
     if (page >= MAX_PAGES) {
-      console.warn(`MAX_PAGES sınırına ulaşıldı (${MAX_PAGES}), durduruluyor.`);
+      console.warn(`Maksimum sayfa sınırına ulaşıldı (${MAX_PAGES}).`);
       break;
     }
   } while (cursor !== null && cursor !== undefined);
@@ -125,12 +132,12 @@ async function fetchAll() {
   return items;
 }
 
-// -- Temizleme ve Kategorizasyon ------------------------------------------
+// -- Kanal İsmi Temizleme ve Kategorilendirme -----------------------------
 
 function sanitizeName(name) {
   return String(name ?? "")
-    .replace(/^\s*(?:[A-Z0-9-]+\s+)*TR:\s*/i, "") // "4K TR:", "HEVC TR:", "TR:" siler
-    .replace(/\s*\.(?:b|c|s)\b/gi, "")            // Sonlardaki uzantıları siler
+    .replace(/^\s*(?:[A-Z0-9-]+\s+)*TR:\s*/i, "")
+    .replace(/\s*\.(?:b|c|s)\b/gi, "")
     .replace(/\s+/g, " ")
     .replace(/\r?\n/g, " ")
     .trim();
@@ -191,7 +198,7 @@ const CATEGORY_RULES = [
   },
   {
     name: "TR YEREL",
-    re: /\b(ADANA|ADIYAMAN|AFYON|AKSARAY|ALANYA|ANKARA|ANTALYA|BURSA|ELAZIG|ERZURUM|ESKISEHIR|GAZIANTEP|KAHRAMANMARAS|KAYSERI|KOCAELI|KONYA|MALATYA|MERSIN|ORDU|SIVAS|TRABZON|URFA|IZMIR|KIBRIS|DENIZLI|KANAL 12|KANAL 15|KANAL 23|KANAL 24|KANAL 26|KANAL 3|KANAL 32|KANAL 33|KANAL 34|KANAL 42|KANAL 58|KANAL 68|KANAL FIRAT|KANAL URFA|KANAL V|KARADENIZ|EGE|MELTEM|CAY TV|OLAY TV|TIVI 6|TV 41|TV 42|TV 52|TV 264)\b/i,
+    re: /\b(ADANA|ADIYAMAN|AFYON|AKSARAY|ALANYA|ANKARA|ANTALYA|BURSA|ELAZIG|ERZURUM|ESKISEHIR|GAZIANTEP|KAHRAMANMARAS|KAYSERI|KOCAELI|KONYA|MALATYA|MERSIN|ORDU|SIVAS|TRABZON|URFA|IZMIR|KIBRIS|DENIZLI|KANAL 12|KANAL 15|KANAL 23|KANAL 24|KANAL 26|KANAL 3|KANAL 32|KANAL 33|KANAL 42|KANAL 58|KANAL 68|KANAL FIRAT|KANAL URFA|KANAL V|KARADENIZ|EGE|MELTEM|CAY TV|OLAY TV|TIVI 6|TV 41|TV 42|TV 52|TV 264)\b/i,
   },
 ];
 
@@ -203,7 +210,7 @@ function categorize(name) {
   return "TR GENEL";
 }
 
-// -- M3U Metin Üretimi ---------------------------------------------------
+// -- M3U Dosyası Oluşturma ------------------------------------------------
 
 function escapeAttr(value) {
   return String(value ?? "").replace(/\r?\n/g, " ").replace(/"/g, "'");
@@ -254,15 +261,15 @@ function toM3U(items) {
 }
 
 async function main() {
-  console.log(`Grup="${GROUP}" isteği gönderiliyor: ${CATALOG_URL} ...`);
-  console.log(`Kullanılan Aktif Proxy Sayısı: ${PROXY_LIST.length}`);
+  console.log(`Veri çekiliyor: ${CATALOG_URL} ...`);
+  console.log(`Algılanan ve Kullanılacak Aktif Proxy Sayısı: ${PROXY_LIST.length}`);
 
   const rawItems = await fetchAll();
-  console.log(`Toplam çekilen ham kanal sayısı: ${rawItems.length}`);
+  console.log(`Toplam ham kanal sayısı: ${rawItems.length}`);
 
   const items = deduplicateItems(rawItems);
   if (rawItems.length !== items.length) {
-    console.log(`Mükerrer yayınlar temizlendi. Kalan net kanal sayısı: ${items.length}`);
+    console.log(`Mükerrer yayınlar temizlendi. Kalan kanal sayısı: ${items.length}`);
   }
 
   items.sort((a, b) => {
@@ -277,7 +284,7 @@ async function main() {
 
   const m3u = toM3U(items);
   await fs.writeFile(M3U_FILE, m3u, "utf8");
-  console.log(`Yazıldı: ${M3U_FILE} (${items.length} kanal)`);
+  console.log(`Başarıyla oluşturuldu: ${M3U_FILE} (${items.length} kanal)`);
 }
 
 main().catch((err) => {
