@@ -23,10 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Proje
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       - name: Node.js Kur
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4.2.0
         with:
           node-version: "24"
 
