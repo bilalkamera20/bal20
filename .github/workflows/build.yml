@@ -1,9 +1,10 @@
-name: Build IPTV M3U
+name: nernur liste
 
 on:
+  workflow_dispatch:
   schedule:
-    # Her Pazartesi 03:00 UTC (06:00 TSİ)
-    - cron: "0 3 * * 1"
+    - cron: '30 01 * * *'   # UTC 01:30 → Türkiye saatiyle 04:30
+    
   workflow_dispatch:
   push:
     branches: [main]
@@ -23,7 +24,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Projeyi Klonla
+      - name: Proje
         uses: actions/checkout@v4
 
       - name: Node.js Kur
@@ -31,7 +32,7 @@ jobs:
         with:
           node-version: "22"
 
-      - name: iptv.m3u Oluştur
+      - name: Oluştur
         env:
           PROXY_BASE: ${{ vars.PROXY_BASE }}
         run: npm run build
@@ -42,8 +43,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if [[ -n "$(git status --porcelain iptv.m3u)" ]]; then
             git add iptv.m3u
-            git commit -m "chore: update iptv.m3u ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+            git commit -m "chore: update nernur.txt ($(date -u +'%Y-%m-%d %H:%M UTC'))"
             git push
           else
-            echo "iptv.m3u üzerinde değişiklik yok."
+            echo "nernur.txt üzerinde değişiklik yok."
           fi
