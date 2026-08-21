@@ -60,8 +60,8 @@ const HEADERS = {
 
 function buildBody(cursor) {
   return JSON.stringify({
-    language: "de",
-    region: "DE",
+    language: "en",
+    region: "ALL",
     catalogId: "iptv",
     id: "",
     adult: false,
