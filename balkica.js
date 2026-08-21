@@ -67,7 +67,7 @@ function buildBody(cursor) {
     adult: false,
     search: "",
     sort: "name",
-    filter: { group: GROUP },
+    filter: new stdClass(),
     cursor,
   });
 }
