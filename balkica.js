@@ -84,7 +84,7 @@ async function fetchWithTimeout(url, options, timeoutMs) {
     return response;
   } catch (error) {
     clearTimeout(id);
-    if (error.name === 'AbortError') {
+    if (error.name === "AbortError") {
       throw new Error(`Zaman aşımı (${timeoutMs}ms)`);
     }
     throw error;
