@@ -21,7 +21,7 @@ jobs:
           node-version: 20 # Fetch API uyumluluğu için Node 20
 
       - name: Scripti Çalıştır
-        run: node index.js
+        run: node balkica.js
         env:
           PROXY_BASE: ${{ secrets.PROXY_BASE }}
 
