@@ -4,7 +4,7 @@ const fs = require("node:fs/promises");
 const path = require("node:path");
 
 const CATALOG_URL = "https://vavoo.to/mediahubmx-catalog.json";
-const GROUP = "Turkey";
+const GROUP = "";
 // Dosya çıkışı 'nernur.txt' olarak güncellendi
 const M3U_FILE = path.join(__dirname, "nernur.txt");
 const FETCH_TIMEOUT_MS = 20000;
