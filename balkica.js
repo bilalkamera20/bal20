@@ -4,8 +4,6 @@ const fs = require("node:fs/promises");
 const path = require("node:path");
 
 const CATALOG_URL = "https://vavoo.to/mediahubmx-catalog.json";
-const GROUP = "Turkey";
-// Dosya çıkışı 'nernur.txt' olarak güncellendi
 const M3U_FILE = path.join(__dirname, "nernur.txt");
 const FETCH_TIMEOUT_MS = 20000;
 const MAX_RETRIES = 5;
@@ -72,18 +70,38 @@ function buildBody(cursor) {
   });
 }
 
+// Timeout kontrolü için güvenli fetch yardımcısı
+async function fetchWithTimeout(url, options, timeoutMs) {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const response = await fetch(url, {
+      ...options,
+      signal: controller.signal,
+    });
+    clearTimeout(id);
+    return response;
+  } catch (error) {
+    clearTimeout(id);
+    if (error.name === 'AbortError') {
+      throw new Error(`Zaman aşımı (${timeoutMs}ms)`);
+    }
+    throw error;
+  }
+}
+
 async function fetchPage(cursor) {
   const body = buildBody(cursor);
   let lastErr;
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
-      const res = await fetch(CATALOG_URL, {
+      const res = await fetchWithTimeout(CATALOG_URL, {
         method: "POST",
         headers: HEADERS,
         body,
-        signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-      });
+      }, FETCH_TIMEOUT_MS);
 
       if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
 
