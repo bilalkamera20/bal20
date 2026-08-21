@@ -1,9 +1,11 @@
-name: Nernur Guncelle
+name: Vavoo M3U Guncelle
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # 6 saatte bir otomatik çalışır
-  workflow_dispatch: # Manuel tetikleme imkanı verir
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions: write-all
 
 jobs:
   build:
@@ -13,12 +15,12 @@ jobs:
       - name: Repoyu Çek
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Git geçmişini eksiksiz çeker (çakışmaları önler)
+          fetch-depth: 0
 
       - name: Node.js Kur
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # Fetch API uyumluluğu için Node 20
+          node-version: 20
 
       - name: Scripti Çalıştır
         run: node balkica.js
